@@ -20,7 +20,7 @@ app.get("/truth", (req, res) => {
       const comments = [];
       const $ = cheerio.load(body);
       $(".uvListItem .uvUserActionBody .typeset").each((index, el) => {
-        comments.push($(el).html());
+        comments.push($(el).text());
       });
 
       res.send(comments[Math.floor(Math.random() * comments.length)]);
