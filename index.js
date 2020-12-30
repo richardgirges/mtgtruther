@@ -10,10 +10,11 @@ app.get("/", (req, res) => res.send("hello"));
 app.get("/ping", (req, res) => res.send("pong"));
 
 app.get("/truth", (req, res) => {
+  const randomPage = Math.floor(Math.random() * 75) + 1;
   request(
     {
       uri:
-        "https://feedback.wizards.com/forums/918667-mtg-arena-bugs-product-suggestions/suggestions/41537692-shuffler-algoritm",
+        "https://feedback.wizards.com/forums/918667-mtg-arena-bugs-product-suggestions/suggestions/41537692-shuffler-algoritm?page=" + randomPage,
     },
     function (error, response, body) {
       const comments = [];
