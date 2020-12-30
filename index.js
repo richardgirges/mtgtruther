@@ -3,6 +3,12 @@ const request = require("request");
 const cheerio = require("cheerio");
 const app = express();
 
+const port = process.env.PORT || 8080;
+
+app.get("/", (req, res) => res.send("hello"));
+
+app.get("/ping", (req, res) => res.send("pong"));
+
 app.get("/truth", (req, res) => {
   request(
     {
@@ -21,4 +27,4 @@ app.get("/truth", (req, res) => {
   );
 });
 
-app.listen(8000, () => console.log("listening on port 8000"));
+app.listen(port, () => console.log("listening on port " + port));
