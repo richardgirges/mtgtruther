@@ -28,7 +28,13 @@ app.get("/truth", (req, res) => {
         }
       });
 
-      res.send(comments[Math.floor(Math.random() * comments.length)]);
+      let comment = comments[Math.floor(Math.random() * comments.length)];
+
+      if (req.query.short === "true") {
+        comment = comment.slice(0, 250);
+      }
+
+      res.send(comment);
     }
   );
 });
