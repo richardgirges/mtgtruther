@@ -23,7 +23,7 @@ app.get("/truth", async (req, res) => {
 
   try {
     const queryRes = await dbClient.query(
-      "SELECT * FROM truths OFFSET floor(random()*(SELECT COUNT(*) FROM truths)) LIMIT 1"
+      "SELECT * FROM truths WHERE LENGTH(body) > 35 OFFSET floor(random()*(SELECT COUNT(*) FROM truths WHERE LENGTH(body) > 35)) LIMIT 1"
     );
     const selectedRow = queryRes.rows[0];
 
