@@ -10,10 +10,7 @@ module.exports = async function doScrape() {
     const queryRes = await dbClient.query(
       "SELECT * FROM truths ORDER BY id DESC LIMIT 1"
     );
-    const lastSyncedPage = Math.max(
-      0,
-      (queryRes.rows[0] ? queryRes.rows[0].page : 0) - 90
-    );
+    const lastSyncedPage = queryRes.rows[0] ? queryRes.rows[0].page : 0;
     const nextSyncedPage = lastSyncedPage + 1;
 
     console.log(

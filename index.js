@@ -5,8 +5,8 @@ const doClearDuplicates = require("./doClearDuplicates");
 const app = express();
 
 const port = process.env.PORT || 8080;
-const scrapeInterval = 3 * 60 * 1000;
-const clearDupesInterval = 6 * 60 * 1000;
+const scrapeInterval = 3 * 60 * 60 * 1000;
+const clearDupesInterval = 6 * 60 * 60 * 1000;
 
 // we check for new comments every 3 hours
 setInterval(doScrape, scrapeInterval);
