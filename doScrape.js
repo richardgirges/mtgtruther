@@ -18,7 +18,7 @@ module.exports = async function doScrape() {
     );
 
     const body = await fetch(
-      "https://feedback.wizards.com/forums/918667-mtg-arena-bugs-product-suggestions/suggestions/41537692-shuffler-algoritm?page=" +
+      "https://feedback.wizards.com/forums/918667-mtg-arena-bugs-product-suggestions/suggestions/44184111-algorithm-improvement?page=" +
         nextSyncedPage
     ).then((res) => res.text());
 
